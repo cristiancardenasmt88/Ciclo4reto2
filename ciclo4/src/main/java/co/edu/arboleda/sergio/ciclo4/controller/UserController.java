@@ -4,6 +4,7 @@ package co.edu.arboleda.sergio.ciclo4.controller;
 import co.edu.arboleda.sergio.ciclo4.model.User;
 import co.edu.arboleda.sergio.ciclo4.service.UserService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,6 +42,10 @@ public class UserController {
     @GetMapping("/all")
     public List<User> getAll() {
         return userService.getAll();
+    }
+    @GetMapping("/{id}")
+    public Optional <User> getUser(@PathVariable("id") int id) {
+        return userService.getUser(id);
     }
     
     /**
